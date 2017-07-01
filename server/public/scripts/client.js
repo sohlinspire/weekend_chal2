@@ -6,8 +6,6 @@ $(document).ready(function(){
 gameSetup();
 //click button to calculate
 //$('.container').on('click', '#start', startGame);
-//$('.counterId').text( '/21');
-$('.container').append('<div></div>');
 
 
 });
