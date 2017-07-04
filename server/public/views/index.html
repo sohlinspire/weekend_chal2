@@ -3,16 +3,25 @@
   <head>
     <meta charset="utf-8">
     <title>Calculator</title>
-    <!--<link rel="stylesheet" href="views/styles.css">-->
+    <link rel="stylesheet" href="views/styles.css">
     <script type="text/javascript" src="vendors/jquery.js"></script>
     <script type="text/javascript" src="scripts/client.js"></script>
   </head>
   <body>
+  <div id="container">
     <h1>My Calculator</h1>
+    <div><button id="clear">Clear</button></div>
     <div><p>X: <input type="text" id="inputX" value=""></p></div>
     <div><p>Y: <input type="text" id="inputY" value=""></p></div>
-    <div class="container"></div>
-    <div><button id="clear">Clear</button></div>
-    <p id="answer"></p>
+    <nav>
+      <span><button id="addition">Add</button></span>
+      <span><button id="subtract">Subtract</button></span>
+      <span><button id="multiply">Multiply</button></span>
+      <span><button id="divide">Divide</button></span>
+    </nav>
+    <div><br></div>
+    <div><button id="submit">Equals</button></div>
+    <div><p id="answer"></p></div>
+  </div>
   </body>
 </html>

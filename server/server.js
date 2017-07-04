@@ -3,10 +3,32 @@ var app = express();
 var path = require('path');
 var port = 5000;
 var bodyParser = require("body-parser");
-app.use(bodyParser.urlencoded({extended: true}));
-
-
-
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+var operation;
+var valueX;
+var valueY;
+//button variable caluculation
+function findValue() {
+  if (operation === "addition") {
+    return parseFloat(valueX) + parseFloat(valueY);
+  } else if (operation === "subtraction") {
+    return valueX - valueY;
+  } else if (operation === "division") {
+    return valueX / valueY;
+  } else {
+    return valueX * valueY;
+  }
+}
+//request and response variable assignment/variable caluculation
+app.post('/setOperation', function(req, res) {
+  operation = req.body.type;
+  valueX = req.body.valueX;
+  valueY = req.body.valueY;
+  //console.log("recieved type", operation, valueX, valueY);
+  res.send(findValue().toString());
+});
 
 //catch all bucket
 app.get("/*", function(req, res) {
@@ -18,7 +40,6 @@ app.get("/*", function(req, res) {
 app.listen(port, function() {
   console.log('listening on the port', port);
 });
-
 
 
 
